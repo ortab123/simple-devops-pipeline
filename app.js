@@ -12,7 +12,7 @@ app.get("/health", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send(`<h1>User Registration</h1>
+  res.send(`<h1>User Registration - Checking code changes</h1>
         <form method="POST" action="/register">
         <input name="name" placeholder="Name" require />
         <input name="email" placeholder="Email" required />
