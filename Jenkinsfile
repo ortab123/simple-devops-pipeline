@@ -24,7 +24,11 @@ pipeline {
 
         stage('Run Container') {
             steps {
-                bat 'docker run -d -p 3000:3000 registration-app:jenkins'
+                bat '''
+                docker stop registration-app || exit /b 0
+                docker rm registration-app || exit /b 0
+                docker run -d --name registration-app -p 3000:3000 registration-app:jenkins
+                '''
             }
         }
     }
